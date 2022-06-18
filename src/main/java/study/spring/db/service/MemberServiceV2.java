@@ -20,6 +20,7 @@ public class MemberServiceV2 {
 	private final MemberRepositoryV2 memberRepository;
 
 	public void accountTransfer(String fromId, String toId, int money) throws SQLException {
+		// TODO 트랜잭션을 사용하기 위해 JDBC 기술에 의존 -> 향후에 JDBC를 JPA 같은 다른 기술로 바꾸면 서비스 코드도 모두 변경해야 한다
 		final Connection con = dataSource.getConnection();
 		try {
 			con.setAutoCommit(false); // 트랜잭션 시작
